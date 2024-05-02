@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colrolib Templates">
+    <meta name="author" content="Colrolib">
+    <meta name="keywords" content="Colrolib Templates">
+
+    <!-- Title Page-->
+    <title>ثبت اطلاعات آگهی</title>
+
+    <!-- Icons font CSS-->
+    <link href="~/assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <!-- Vendor CSS-->
+    <link href="~/assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/assets/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Main CSS-->
+    <link href="~/assets/css/main2.css" rel="stylesheet" media="all">
+</head>
+
+<body dir="rtl">
+    <div class="page-wrapper p-t-200 p-b-120">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-4">
+                <div class="card-body">
+                    <ul class="tab-list">
+                        <li class="tab-list__item active">
+                            <a class="tab-list__link" href="#tab1" data-toggle="tab">خرید</a>
+                        </li>
+                        <li class="tab-list__item">
+                            <a class="tab-list__link" href="#tab2" data-toggle="tab">رهن و اجاره</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text"
+                                                   placeholder="شهر مورد نظر خود را انتخاب کنید" id="city1">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" name="check-out"
+                                                   placeholder="محله مورد نظر خود را انتخاب کنید" id="nhood1">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="متراژ" id="size1">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="سن خانه" id="age1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="قیمت کامل" id="price1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space using-type">
+                                    <div class="radio-row">
+                                        <label class="radio-label">نوع‌کاربری:</label>
+                                        <label class="radio-container">
+                                            مسکونی
+                                            <input type="radio" checked="checked" id="maskuny1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            تجاری
+                                            <input type="radio" name="class" id="tejary1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            اداری
+                                            <input type="radio" name="class" id="edary1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            صنعتی
+                                            <input type="radio" name="class" id="sanaty1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row row-space using-type">
+                                    <div class="radio-row">
+                                        <label class="radio-label">تعدادخواب:</label>
+                                        <label class="radio-container">
+                                            0خوابه
+                                            <input type="radio" name="class1" id="0room1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            1خوابه
+                                            <input type="radio" name="class1" id="1room1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            2خوابه
+                                            <input type="radio" name="class1" id="2room1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            3خوابه
+                                            <input type="radio" name="class1" id="3room1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            4خوابه
+                                            <input type="radio" name="class1" id="4room1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            5خوابه
+                                            <input type="radio" name="class1" id="5room1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row row-space using-type">
+                                    <div class="radio-row">
+                                        <label class="radio-label">امکانات:</label>
+                                        <label class="radio-container">
+                                            پارکینگ
+                                            <input type="checkbox"  name="class2" id="parking1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            آسانسور
+                                            <input type="checkbox" name="class2" id="elevator1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            انباری
+                                            <input type="checkbox" name="class2" id="stor1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            بالکن
+                                            <input type="checkbox" name="class2" id="balcony1">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" id="title1"
+                                                   placeholder="برای آگهی خود یک عنوان انتخاب کنید">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" id="explain1"
+                                                   placeholder="توضیحات (اطلاعات بیشتر وارد نمایید)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space image-row">
+                                    <form action="/action_page.php">
+                                        <label for="file" class="image-label">افزودن تصویر:</label>
+                                        <input type="file" id="file1" name="file" class="custom-file-input">
+                                        <label for="file" class="image-label">
+                                            [تصویر انتخاب شده به عنوان تصویر اصلی
+                                            نمایش داده خواهد شد.]
+                                        </label>
+                                    </form>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn-submit" type="submit" onclick="setAD1()">ثبت اطلاعات</button>
+                                </div>
+                            
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                           
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="شهر مورد نظر خود را انتخاب کنید" id="city2">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="محله مورد نظر خود را انتخاب کنید" id="nhood2">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text"
+                                                   placeholder="متراژ" id="size2">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="سن خانه" id="age2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="قیمت رهن" id="price2">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" 
+                                                   placeholder="قیمت اجاره" id="rentPrice2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space using-type">
+                                    <div class="radio-row">
+                                        <label class="radio-label">نوع‌کاربری:</label>
+                                        <label class="radio-container">
+                                            مسکونی
+                                            <input type="radio" name="class" id="maskuny2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            تجاری
+                                            <input type="radio" name="class" id="tejary2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            اداری
+                                            <input type="radio" name="class" id="edary2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            صنعتی
+                                            <input type="radio" name="class" id="sanaty2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row row-space using-type">
+                                    <div class="radio-row">
+                                        <label class="radio-label">تعدادخواب:</label>
+                                        <label class="radio-container">
+                                            0خوابه
+                                            <input type="radio"  name="class1" id="0room2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            1خوابه
+                                            <input type="radio" name="class1" id="1room2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            2خوابه
+                                            <input type="radio" name="class1" id="2room2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            3خوابه
+                                            <input type="radio" name="class1" id="3room2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            4خوابه
+                                            <input type="radio" name="class1" id="4room2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            5خوابه
+                                            <input type="radio" name="class1" id="5room2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row row-space using-type">
+                                    <div class="radio-row">
+                                        <label class="radio-label">امکانات:</label>
+                                        <label class="radio-container">
+                                            پارکینگ
+                                            <input type="checkbox"  name="class2" id="parking2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            آسانسور
+                                            <input type="checkbox" name="class2" id="elevator2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            انباری
+                                            <input type="checkbox" name="class2" id="stor2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            بالکن
+                                            <input type="checkbox" name="class2" id="balcony2">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" name="check-in" id="title2"
+                                                   placeholder="برای آگهی خود یک عنوان انتخاب کنید">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group">
+                                            <input class="input--style-1" type="text" name="check-in" id="explain2"
+                                                   placeholder="توضیحات (اطلاعات بیشتر وارد نمایید)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space image-row">
+                                    <form action="/action_page.php">
+                                        <label for="file" class="image-label">افزودن تصویر:</label>
+                                        <input type="file" id="file2" name="file" class="custom-file-input">
+                                        <label for="file" class="image-label">
+                                            [تصویر انتخاب شده به عنوان تصویر اصلی
+                                            نمایش داده خواهد شد.]
+                                        </label>
+                                    </form>
+
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn-submit" type="submit" onclick="setAD2()" >ثبت اطلاعات</button>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/assets/vendor/select2/select2.min.js"></script>
+    <script src="~/assets/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/assets/vendor/bootstrap-wizard/bootstrap.min.js"></script>
+    <script src="~/assets/vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="~/assets/vendor/datepicker/moment.min.js"></script>
+    <script src="~/assets/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/assets/js/global.js"></script>
+    <script>
+        function setAD1() {
+            
+            var city1 = $("#city1").val();
+            var nhood1 = $("#nhood1").val();
+            var size1 = $("#size1").val();
+            var age1 = $("#age1").val();
+            var price1 = $("#price1").val();
+            var use1 = 0;
+            var roomnum1 = 0;
+            var parking1 = 0;
+            var elevator1 = 0;
+            var stor1 = 0;
+            var balcony1 = 0;
+            var title1 = $("#title1").val();
+            var explain1 = $("#explain1").val();
+            var rentPrice = 0;
+            var Adtype = 0;
+           
+            if ($('#maskuny1').is(':checked')) {
+                maskuny1=1
+            }
+            if ($('#tejary1').is(':checked')) {
+                tejary1 = 2
+            }
+            if ($('#edary1').is(':checked')) {
+                edary1 = 3
+            }
+            if ($('#sanaty1').is(':checked')) {
+                edary1 = 4
+            }
+
+
+            if ($('#1room1').is(':checked')) {
+                roomnum1 = 1
+            }
+            if ($('#2room1').is(':checked')) {
+                roomnum1 = 2
+            }
+            if ($('#3room1').is(':checked')) {
+                roomnum1 = 3
+            }
+            if ($('#4room1').is(':checked')) {
+                roomnum1 = 4
+            }
+            if ($('#5room1').is(':checked')) {
+                roomnum1 = 5
+            }
+
+
+            if ($('#parking1').is(':checked')) {
+                parking1 = 1;
+            }
+            if ($('#elevator1').is(':checked')) {
+                elevator1 = 1;
+            }
+            if ($('#stor1').is(':checked')) {
+                stor1 = 1;
+            }
+            if ($('#balcony1').is(':checked')) {
+                balcony1 = 1;
+            }
+
+            var img1 = document.getElementById('file1');
+            
+            $.post("/Home/setAD", { Adtype: Adtype, rentPrice: rentPrice , city: city1, nhood: nhood1, size: size1, age: age1, price: price1, use: use1, roomnum: roomnum1, parking: parking1, elevator: elevator1, stor: stor1, balcony: balcony1, title: title1, explain: explain1 })
+
+                .done(function (res) {
+                    switch (res) {
+                        case 0: swal("عملیات ناموفق", "قبلا ثبت کردید", "error");
+                            break;
+                        case 1: swal("عملیات موفق", "آگهی شما ثبت شد", "success");
+                            
+                            break;
+                       
+                    }
+
+
+                })
+                .fail(function () {
+                    alert("خطا در برقراری ارتباط با سرور");
+                })
+                .always(function () {
+
+                });
+
+        };
+
+
+        function setAD2() {
+
+            var city2 = $("#city2").val();
+            var nhood2 = $("#nhood2").val();
+            var size2 = $("#size2").val();
+            var age2 = $("#age2").val();
+            var price2 = $("#price2").val();
+            var use2 = 0;
+            var roomnum2 = 0;
+            var parking2 = 0;
+            var elevator2 = 0;
+            var stor2 = 0;
+            var balcony2 = 0;
+            var title2 = $("#title2").val();
+            var explain2 = $("#explain2").val();
+            var Adtype2 = 1;
+            var rentPrice2 = $("#rentPrice2").val();
+
+            if (rentPrice2 == 0) {
+                Adtype2 = 2;
+            }
+            
+
+            if ($('#maskuny2').is(':checked')) {
+                use2 = 1
+            }
+            if ($('#tejary2').is(':checked')) {
+                use2 = 2
+            }
+            if ($('#edary2').is(':checked')) {
+                use2 = 3
+            }
+            if ($('#sanaty2').is(':checked')) {
+                use2 = 4
+            }
+
+
+            if ($('#1room2').is(':checked')) {
+                roomnum2 = 1
+            }
+            if ($('#2room2').is(':checked')) {
+                roomnum2 = 2
+            }
+            if ($('#3room2').is(':checked')) {
+                roomnum2 = 3
+            }
+            if ($('#4room2').is(':checked')) {
+                roomnum2 = 4
+            }
+            if ($('#5room2').is(':checked')) {
+                roomnum2 = 5
+            }
+
+
+            if ($('#parking2').is(':checked')) {
+                parking2 = 1;
+            }
+            if ($('#elevator2').is(':checked')) {
+                elevator2 = 1;
+            }
+            if ($('#stor2').is(':checked')) {
+                stor2 = 1;
+            }
+            if ($('#balcony2').is(':checked')) {
+                balcony2 = 1;
+            }
+
+            var img2 = document.getElementById('file1');
+
+            $.post("/Home/setAD", { Adtype: Adtype2, rentPrice: rentPrice2, city: city2, nhood: nhood2, size: size2, age: age2, price: price2, use: use2, roomnum: roomnum2, parking: parking2, elevator: elevator2, stor: stor2, balcony: balcony2, title: title2, explain: explain2 })
+
+                .done(function (res) {
+                    switch (res) {
+                        case 0: swal("عملیات ناموفق", "قبلا ثبت کردید", "error");
+                            break;
+                        case 1: swal("عملیات موفق", "آگهی شما ثبت شد", "success");
+
+                            break;
+
+                    }
+
+
+                })
+                .fail(function () {
+                    alert("خطا در برقراری ارتباط با سرور");
+                })
+                .always(function () {
+
+                });
+
+        };
+
+       
+    </script>
+</body>
+</html>
+<!-- end document-->

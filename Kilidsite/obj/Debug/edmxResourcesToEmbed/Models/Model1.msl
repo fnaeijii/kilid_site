@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kilidModelStoreContainer" CdmEntityContainer="kilidEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="kilidModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="pkID" ColumnName="pkID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agancies">
+      <EntityTypeMapping TypeName="kilidModel.Agancy">
+        <MappingFragment StoreEntitySet="Agancy">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ManagerPhoneNumber" ColumnName="ManagerPhoneNumber" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="NumberofEmployees" ColumnName="NumberofEmployees" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AcancyPhone" ColumnName="AcancyPhone" />
+          <ScalarProperty Name="AgancyName" ColumnName="AgancyName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Advertises">
+      <EntityTypeMapping TypeName="kilidModel.Advertise">
+        <MappingFragment StoreEntitySet="Advertise">
+          <ScalarProperty Name="agID" ColumnName="agID" />
+          <ScalarProperty Name="hID" ColumnName="hID" />
+          <ScalarProperty Name="ADID" ColumnName="ADID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Homes">
+      <EntityTypeMapping TypeName="kilidModel.Home">
+        <MappingFragment StoreEntitySet="Home">
+          <ScalarProperty Name="Explain" ColumnName="Explain" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Store" ColumnName="Store" />
+          <ScalarProperty Name="Elevator" ColumnName="Elevator" />
+          <ScalarProperty Name="Balcony" ColumnName="Balcony" />
+          <ScalarProperty Name="Parkinglot" ColumnName="Parkinglot" />
+          <ScalarProperty Name="Roomnum" ColumnName="Roomnum" />
+          <ScalarProperty Name="Usage" ColumnName="Usage" />
+          <ScalarProperty Name="Adtype" ColumnName="Adtype" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="RentPrice" ColumnName="RentPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

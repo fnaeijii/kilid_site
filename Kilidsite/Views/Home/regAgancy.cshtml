@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html lang="fa">
+
+<head dir="rtl">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Snippet - GoSNippets</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='~/assets/css/style.css' rel='stylesheet'>
+
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body oncontextmenu='return false' class='snippet-body'>
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <h5>اطلاعـــات آژانـس خـود را ثبت کرده و آگهی امــلاک خود را به اشتراک بگذارید</h5>
+            </div>
+            <div class="col-md-9 register-right" dir="rtl">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">ثبت اطلاعات آژانس</h3>
+                        <div class="row register-form" dir="rtl">
+                            <div class="col-md-6">
+                                <h6 dir="rtl">اطلاعات مدیر</h6>
+                                <div class="form-group">
+                                    <input id="AgName" type="text" class="form-control" placeholder="*نام و نام خانوادگی" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="Agphone" type="text" minlength="10" maxlength="11" name="txtEmpPhone" class="form-control" placeholder="*تلفن همراه مدیر" value="" />
+                                </div>
+                               
+                                <h6 dir="rtl">تعیین رمز عبور 5 رقمی</h6>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="*رمز عبور" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="AgPass" type="password" class="form-control" placeholder="*تکرار رمز عبور" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 dir="rtl">اطلاعات آژانس</h6>
+                                <div class="form-group">
+                                    <input id="Agn" type="email" class="form-control" placeholder="*نام آژانس" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="Agp" type="text" minlength="10" maxlength="10" name="txtEmpPhone"
+                                           class="form-control" placeholder="*تلفن آژانس" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="Agcity" type="text" class="form-control" placeholder="*شهر حوزه فعالیت"
+                                           value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="AgW" type="text" class="form-control" placeholder="تعداد کارمندان" value="" />        
+                                </div>
+                                <button type="submit" class="btn btn-primary rounded_pill  px-md-5" onclick="setAgency()">ورود</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script type='text/javascript'></script>
+
+<script>
+    function setAgency() {
+        var AgName = $("#AgName").val();
+        var Agphone = $("#Agphone").val();
+        var AgPass = $("#AgPass").val();
+        var Agn = $("#Agn").val();
+        var Agp = $("#Agp").val();
+        var Agcity = $("#Agcity").val();
+        var AgW = $("#AgW").val();
+
+        $.post("/Home/setagency", { AgName: AgName, Agphone: Agphone, AgPass: AgPass, Agn: Agn, Agp: Agp, Agcity: Agcity, AgW: AgW })
+
+            .done(function (res) {
+                switch (res) {
+                    case 0: swal("عملیات ناموفق", "قبلا ثبت نام کردید", "error");
+                        break;
+                    case 1: swal("عملیات موفق", "آژانس شما ثبت شد", "success");
+                        window.location.href = "//localhost:43567/Home/Advertise";
+                        break;
+                    default:
+                        return false;
+                }
+
+
+            })
+            .fail(function () {
+                alert("خطا در برقراری ارتباط با سرور");
+            })
+            .always(function () {
+
+            });
+
+    };
+
+</script>
+
+</body>
+
+</html>

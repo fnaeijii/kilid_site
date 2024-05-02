@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html lang="fa">
+
+<head dir="rtl">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Snippet - GoSNippets</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='~/assets/css/style.css' rel='stylesheet'>
+
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body class='snippet-body'>
+    <div class="container register">
+        <div class="top-content">
+
+            <div class="form-box">
+                <div class="form-top">
+                    <div class="form-top">
+                        <h3><strong>ورود و ثبت نام</strong></h3>
+                        <br />
+
+                    </div>
+
+                </div>
+                <div class="form-bottom">
+                    <form role="form" action="" method="post" class="login-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-username">شماره تلفن خود را وارد کنید و روی دکمه ارسال کد تایید کلیک کنید</label>
+                            <br />
+                            <input type="text" name="form-username" placeholder="شماره تلفن" class="form-username form-control" id="UserPhone">
+                        </div>
+                        <br />
+                        <button class="btn btn-dark" type='button'>دریافت کد یکبار مصرف</button>
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <input type="password" name="form-password" placeholder="کد تایید" class="form-password form-control" id="form-password">
+                        </div>
+                        <br />
+                        <button onclick="setUser()" type="submit" class="btn btn-primary rounded_pill  px-3">ورود</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type='text/javascript'></script>
+    <script src="~/assets/js/myjquery.js"></script>
+
+    <script>
+        function setUser() {
+            var UserPhone = $("#UserPhone").val();
+
+
+            $.post("/Home/setuser", { UserPhone: UserPhone })
+
+                .done(function (res) {
+                    switch (res) {
+                        case 0: swal("عملیات ناموفق", "قبلا ثبت نام کردید", "error");
+                            break;
+                        case 1: swal("عملیات موفق", "ثبت نام شدید", "success");
+                            break;
+                    }
+
+
+                })
+                .fail(function () {
+                    alert("خطا در برقراری ارتباط با سرور");
+                })
+                .always(function () {
+
+                });
+
+        };
+    </script>
+
+
+</body>
+
+</html>

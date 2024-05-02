@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kilidModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Advertise">
+    <Key>
+      <PropertyRef Name="ADID" />
+    </Key>
+    <Property Name="ADID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hID" Type="int" />
+    <Property Name="agID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agancy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgancyName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AcancyPhone" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="NumberofEmployees" Type="int" />
+    <Property Name="ManagerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ManagerPhoneNumber" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Home">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Neighborhood" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Price" Type="bigint" Nullable="false" />
+    <Property Name="RentPrice" Type="bigint" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Adtype" Type="int" Nullable="false" />
+    <Property Name="Usage" Type="int" Nullable="false" />
+    <Property Name="Roomnum" Type="int" Nullable="false" />
+    <Property Name="Parkinglot" Type="int" Nullable="false" />
+    <Property Name="Balcony" Type="int" Nullable="false" />
+    <Property Name="Elevator" Type="int" Nullable="false" />
+    <Property Name="Store" Type="int" Nullable="false" />
+    <Property Name="Image" Type="image" />
+    <Property Name="Explain" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="pkID" />
+    </Key>
+    <Property Name="pkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Email" Type="nvarchar" MaxLength="40" />
+    <Property Name="Password" Type="nchar" MaxLength="5" />
+  </EntityType>
+  <Association Name="FK_Advertise_Agancy">
+    <End Role="Agancy" Type="Self.Agancy" Multiplicity="1" />
+    <End Role="Advertise" Type="Self.Advertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agancy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Advertise">
+        <PropertyRef Name="agID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Advertise_Home">
+    <End Role="Home" Type="Self.Home" Multiplicity="0..1" />
+    <End Role="Advertise" Type="Self.Advertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Advertise">
+        <PropertyRef Name="hID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="kilidModelStoreContainer">
+    <EntitySet Name="Advertise" EntityType="Self.Advertise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agancy" EntityType="Self.Agancy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home" EntityType="Self.Home" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Advertise_Agancy" Association="Self.FK_Advertise_Agancy">
+      <End Role="Agancy" EntitySet="Agancy" />
+      <End Role="Advertise" EntitySet="Advertise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Advertise_Home" Association="Self.FK_Advertise_Home">
+      <End Role="Home" EntitySet="Home" />
+      <End Role="Advertise" EntitySet="Advertise" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

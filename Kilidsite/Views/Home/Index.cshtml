@@ -1,0 +1,565 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>سایت کلید</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="~/assets/css/main2.css" rel="stylesheet" media="all">
+    <!-- =======================================================
+    * Template Name: Logis
+    * Updated: Jan 09 2024 with Bootstrap v5.3.2
+    * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1>kilid</h1>
+            </a>
+
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="/Home/agencies">آژانس های املاک</a></li>
+                    <li><a href="/Home/AgencyforAdvertise">ثبت رایگان آگهی</a></li>
+
+                    <li class="dropdown">
+                        <a href="#"><span>جستجو</span><i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul>
+                            <li><a href="#tab1">خرید</a></li>
+                            <li><a href="#tab2">رهن و اجاره</a></li>
+                            <li><a href="#tab3">رهن کامل</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/Home/edit_acc">ویرایش پروفایل</a></li>
+                    <li><a class="get-a-quote" href="/Home/login">ورود و ثبت نام</a></li>
+                </ul>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+    <!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row gy-4 d-flex justify-content-between">
+                <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                    <h2 data-aos="fade-up">مسکن یک تصمیم کلیدی</h2>
+
+
+                    <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <input id="place3" type="text" class="form-control" placeholder="شهر منطقه یا محله را وارد کنید">
+                        <button class="btn btn-primary" onclick="searching2()"><a class="get-a-quote btn" href="#resaults">جستجو</a></button>
+                    </form>
+
+                    <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+
+                        <div class="col-lg-3 col-6">
+                            <div class="stats-item text-center w-100 h-100">
+                                <span data-purecounter-start="0" data-purecounter-end="@ViewBag.homes" data-purecounter-duration="1" class="purecounter"></span>
+                                <p>مسکن ها</p>
+                            </div>
+                        </div><!-- End Stats Item -->
+
+                        <div class="col-lg-3 col-6">
+                            <div class="stats-item text-center w-100 h-100">
+                                <span data-purecounter-start="0" data-purecounter-end="@ViewBag.agency" data-purecounter-duration="1" class="purecounter"></span>
+                                <p>آژانس ها</p>
+                            </div>
+                        </div><!-- End Stats Item -->
+
+                        <div class="col-lg-3 col-6">
+                            <div class="stats-item text-center w-100 h-100">
+                                <span data-purecounter-start="0" data-purecounter-end="@ViewBag.users" data-purecounter-duration="1" class="purecounter"></span>
+                                <p>کاربران</p>
+                            </div>
+                        </div><!-- End Stats Item -->
+
+
+
+                    </div>
+                    <div class="page-wrapper bg-img-1 p-t-200 p-b-120">
+                        <div class="wrapper wrapper--w900">
+                            <div class="card card-4">
+                                <div class="card-body">
+                                    <ul class="tab-list">
+                                        <li class="tab-list__item active">
+                                            <a class="tab-list__link" href="#tab1" data-toggle="tab">خرید</a>
+                                        </li>
+                                        <li class="tab-list__item">
+                                            <a class="tab-list__link" href="#tab2" data-toggle="tab">رهن و اجاره</a>
+                                        </li>
+                                        <li class="tab-list__item">
+                                            <a class="tab-list__link" href="#tab3" data-toggle="tab">رهن کامل</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content ">
+                                        <div class="tab-pane active" id="tab1">
+                                            <form method="POST" action="#">
+                                                <div class="input-group input-group-big">
+                                                    <label class="label">مکان</label>
+                                                    <input class="input--style-1" type="text" name="address" placeholder="شهر منطقه یا محله را وارد کنید" required="required" id="place1">
+                                                    <i class="zmdi zmdi-search input-group-symbol"></i>
+                                                </div>
+                                                <div class="row row-space">
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">متراژ</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="size1">
+                                                                    <option value="">انتخاب کنید</option>
+                                                                    <option>0-50</option>
+                                                                    <option>50_80</option>
+                                                                    <option>80_110</option>
+                                                                    <option>110_140</option>
+                                                                    <option>140_170</option>
+                                                                    <option>170_200</option>
+                                                                    <option>200_300</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">سن</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="age1">
+                                                                    <option value="">انتخاب کنید</option>
+                                                                    <option>0_1</option>
+                                                                    <option>1_5</option>
+                                                                    <option>5_10</option>
+                                                                    <option>10_15</option>
+                                                                    <option>15_20</option>
+                                                                    <option>20_100</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row row-space">
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">قیمت/میلیون تومان</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="price1">
+                                                                    <option value="">انتخاب کنید</option>
+                                                                    <option>0_20</option>
+                                                                    <option>20_30</option>
+                                                                    <option>30_40</option>
+                                                                    <option>40_50</option>
+                                                                    <option>50_60</option>
+                                                                    <option>60_70</option>
+                                                                    <option>70_80</option>
+                                                                    <option>80_200</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">تعداد خواب</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="roomnum1">
+                                                                    <option value="">انتخاب کنید</option>
+                                                                    <option>0</option>
+                                                                    <option>1</option>
+                                                                    <option>2</option>
+                                                                    <option>3</option>
+                                                                    <option>4</option>
+                                                                    <option>5</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="radio-row alert-dark">
+                                                    <label class="radio-container " style="color:black;">
+                                                        آسانسور
+                                                        <input type="checkbox" name="class" id="elevator1">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container " style="color:black;">
+                                                        پارکینگ
+                                                        <input type="checkbox" name="class" id="paking1">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <br />
+                                                    <label class="radio-container " style="color:black;">
+                                                        بالکن
+                                                        <input type="checkbox" name="class" id="balcony1">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container" style="color:black;">
+                                                        انباری
+                                                        <input type="checkbox" name="class" id="stor1">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                </div>
+                                                <button onclick="searching()" class="btn btn-primary m-t-35" type="submit" id="buysearch">جستجو</button>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane active" id="tab2">
+                                            <form method="POST" action="#">
+                                                <div class="input-group input-group-big">
+                                                    <label class="label">مکان</label>
+                                                    <input class="input--style-1" type="text" name="address" placeholder="شهر منطقه یا محله را وارد کنید" id="place2">
+                                                    <i class="zmdi zmdi-search input-group-symbol"></i>
+                                                </div>
+                                                <div class="row row-space">
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">متراژ</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="size2">
+                                                                    <option value="">انتخاب کنید</option>
+                                                                    <option>0-50</option>
+                                                                    <option>50_80</option>
+                                                                    <option>80_110</option>
+                                                                    <option>110_140</option>
+                                                                    <option>140_170</option>
+                                                                    <option>170_200</option>
+                                                                    <option>200_300</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">سن</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="age2">
+                                                                    <option value="">انتخاب کنید</option>
+                                                                    <option>0_1</option>
+                                                                    <option>1_5</option>
+                                                                    <option>5_10</option>
+                                                                    <option>10_15</option>
+                                                                    <option>15_20</option>
+                                                                    <option>20_100</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row row-space">
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">قیمت/رهن/میلیون تومان</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="priceR2">
+                                                                    <option>20_50</option>
+                                                                    <option>50_100</option>
+                                                                    <option>100_150</option>
+                                                                    <option>150_200</option>
+                                                                    <option>200_250</option>
+                                                                    <option>250_300</option>
+                                                                    <option>300_400</option>
+                                                                    <option>400_500</option>
+                                                                    <option>500_1000</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                            <label class="label">قیمت/اجاره ماهانه/میلیون تومان</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="priceE2">
+                                                                    <option>0_5</option>
+                                                                    <option>5_10</option>
+                                                                    <option>10_15</option>
+                                                                    <option>15_20</option>
+                                                                    <option>20_25</option>
+                                                                    <option>25_30</option>
+                                                                    <option>30_40</option>
+                                                                    <option>40_100</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">تعداد خواب</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age" id="roomnum2">
+                                                                    <option>1</option>
+                                                                    <option>2</option>
+                                                                    <option>3</option>
+                                                                    <option>4</option>
+                                                                    <option>5</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="radio-row">
+                                                    <label class="radio-container " style="color:black;">
+                                                        آسانسور
+                                                        <input type="checkbox" name="class" id="elevator2">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container " style="color:black;">
+                                                        پارکینگ
+                                                        <input type="checkbox" name="class" id="paking2">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container" style="color:black;">
+                                                        بالکن
+                                                        <input type="checkbox" name="class" id="balcony2">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container" style="color:black;" id="stor2">
+                                                        انباری
+                                                        <input type="checkbox" name="class">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                </div>
+                                                <button class="btn-primary m-t-35" onclick="searching2()">جستجو</button>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane active" id="tab3">
+                                            <form method="POST" action="#">
+                                                <div class="input-group input-group-big">
+                                                    <label class="label">مکان</label>
+                                                    <input class="input--style-1" type="text" name="address" placeholder="شهر منطقه یا محله را وارد کنید" required="required">
+                                                    <i class="zmdi zmdi-search input-group-symbol"></i>
+                                                </div>
+                                                <div class="row row-space">
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">متراژ</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age">
+                                                                    <option>کمتر از 50</option>
+                                                                    <option>50_80</option>
+                                                                    <option selected="selected">80_110</option>
+                                                                    <option>110_140</option>
+                                                                    <option>140_170</option>
+                                                                    <option>170_200</option>
+                                                                    <option>بیشتر از 200</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">سن</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age">
+                                                                    <option>نوساز / کمتر از 1 سال</option>
+                                                                    <option>1_5</option>
+                                                                    <option selected="selected">5_10</option>
+                                                                    <option>10_15</option>
+                                                                    <option>15_20</option>
+                                                                    <option>بیشتر از 20 سال</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row row-space">
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">قیمت/رهن کامل/ملیون تومان</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age">
+                                                                    <option>زیر 50 میلیون</option>
+                                                                    <option>50_100</option>
+                                                                    <option selected="selected">100_200</option>
+                                                                    <option>200_300</option>
+                                                                    <option>300_400</option>
+                                                                    <option>400_500</option>
+                                                                    <option>500_600</option>
+                                                                    <option>600_700</option>
+                                                                    <option>700_800</option>
+                                                                    <option>بالای 800 میلیون</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="input-group">
+                                                            <label class="label">تعداد خواب</label>
+                                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                                <select name="driver-age">
+                                                                    <option>1</option>
+                                                                    <option>2</option>
+                                                                    <option selected="selected">3</option>
+                                                                    <option>4</option>
+                                                                    <option>5</option>
+                                                                </select>
+                                                                <div class="select-dropdown"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="radio-row">
+                                                    <label class="radio-container " style="color:black;">
+                                                        آسانسور
+                                                        <input type="checkbox" name="class">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container " style="color:black;">
+                                                        پارکینگ
+                                                        <input type="checkbox" name="class">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container" style="color:black;">
+                                                        بالکن
+                                                        <input type="checkbox" name="class">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container" style="color:black;">
+                                                        انباری
+                                                        <input type="checkbox" name="class">
+                                                        <span class="radio-checkmark"></span>
+                                                    </label>
+                                                </div>
+                                                <button class="btn btn-primary m-t-35">جستجو</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                    <img src="" class="img-fluid mb-3 mb-lg-0" alt="">
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero Section -->
+    <section id="pricing" class="pricing pt-0">
+        <div class="container" data-aos="fade-up" id="addsession">
+           
+            <div class="section-header">
+
+                <h2>نتایج جستجو</h2>
+
+            </div>
+
+            <div class="row gy-4" id="resaults">
+
+
+
+            </div>
+
+        </div>
+    </section><!-- End Pricing Section -->
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="~/assets/js/global.js"></script>
+
+    @section script{
+        <script src="~/assets/js/myjquery.js"></script>
+    }
+
+<script>
+    function searching2() {
+        var place = $("#place3").val();
+        alert(place);
+        $.post("/Home/filter2", { place: place })
+
+            .done(function (res) {
+                for (var item in res) {
+
+                    $("#resaults").append(
+
+                        "<div class='col - lg - 4' data-aos='fade - up' data-aos-delay='100'>" +
+                        "<div class='pricing - item'>" +
+                        "<h3>" + res[item].Title + "</h3>" +
+                        "<h4>" + res[item].City + "/" + res[item].Neighborhood + "</h4>" +
+                        +"<ul>" +
+                        "<li><i class='bi bi - check'></i>" + " قیمت " + res[item].Price + "</li>" +
+                        "<li><i class='bi bi - check'></i>" + "متراژ" + res[item].Size + "</li>" +
+                        "<li><i class='bi bi - check'></i>" + "سن" + res[item].Age + "</li>" +
+                        "<li class='na'><i class='bi bi - x'></i> <span>" + "تعداد اتاق" + res[item].RoomNum + "</span></li>" +
+                        "<li class='na'><i class='bi bi - x'></i> <span>" + "کاربری" + res[item].Usage + "</span></li>" +
+                        "<li class='na'><i class='bi bi - x'></i> " + par + "/" + ele + "/" + bal + "/" + sto + "</li>" +
+                        "</ul>" +
+                        "<a href='' class='buy - btn'>" + خرید + "</a>" +
+                        "</div>" +
+                        "</div>"
+                    )
+                }
+
+
+            })
+            .fail(function () {
+                alert("خطا در برقراری ارتباط با سرور");
+            })
+            .always(function () {
+
+            });
+
+    }
+
+
+
+</script>
+
+</body>
+
+</html>

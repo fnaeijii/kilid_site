@@ -1,0 +1,103 @@
+﻿
+
+<!doctype html>
+<html lang="fa">
+
+<head dir="rtl">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Snippet - GoSNippets</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='~/assets/css/style.css' rel='stylesheet'>
+
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body class='snippet-body'>
+    <div class="container register">
+        <div class="top-content">
+
+            <div class="form-box">
+                <div class="form-top">
+                    <div class="form-top">
+                        <h3><strong>ویرایش اطلاعات</strong></h3>
+                        <br />
+
+                    </div>
+
+                </div>
+                <div class="form-bottom">
+                    <form role="form" action="" method="post" class="registration-form">
+                        <div class="form-group">
+
+                            <input type="text" name="form-first-name" placeholder="شماره تماس" class="form-first-name form-control" id="userP">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="form-first-name">نام و نام خانوادگی</label>
+                            <input type="text" name="form-first-name" placeholder="نام و نام خانوادگی" class="form-first-name form-control" id="usname">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="form-email">ایمیل</label>
+                            <input type="text" name="form-email" placeholder="ایمیل" class="form-email form-control" id="usemail">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="form-password">رمز عبور</label>
+                            <input type="password" name="form-password" placeholder="رمز عبور" class="form-password form-control" id="uspassword">
+                        </div>
+
+                        <br />
+                        <button class="btn btn-primary rounded_pill  px-3" onclick="editUser()">اعمال تغییرات</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type='text/javascript'></script>
+    <script src="~/assets/js/myjquery.js"></script>
+<script>
+    function editUser() {
+        var userP = $("#userP").val();
+        var usname = $("#usname").val();
+        var usemail = $("#usemail").val();
+        var uspassword = $("#uspassword").val();
+
+
+        $.post("/Home/edituser", { userP: userP, usname: usname, usemail: usemail, uspassword: uspassword })
+
+            .done(function (res) {
+                switch (res) {
+                    case 0: swal("عملیات ناموفق", "ابتدا ثبت نام کنید", "error");
+                        break;
+                    case 1: swal("عملیات موفق", "تغییرات ثبت شد", "success");
+                        break;
+                }
+
+            })
+            .fail(function () {
+                alert("خطا در برقراری ارتباط با سرور");
+            })
+            .always(function () {
+
+            });
+
+    };
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="kilidModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Advertise">
+          <Key>
+            <PropertyRef Name="ADID" />
+          </Key>
+          <Property Name="ADID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hID" Type="int" />
+          <Property Name="agID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Agancy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgancyName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AcancyPhone" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NumberofEmployees" Type="int" />
+          <Property Name="ManagerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ManagerPhoneNumber" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Neighborhood" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Size" Type="int" Nullable="false" />
+          <Property Name="Price" Type="bigint" Nullable="false" />
+          <Property Name="RentPrice" Type="bigint" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Adtype" Type="int" Nullable="false" />
+          <Property Name="Usage" Type="int" Nullable="false" />
+          <Property Name="Roomnum" Type="int" Nullable="false" />
+          <Property Name="Parkinglot" Type="int" Nullable="false" />
+          <Property Name="Balcony" Type="int" Nullable="false" />
+          <Property Name="Elevator" Type="int" Nullable="false" />
+          <Property Name="Store" Type="int" Nullable="false" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Explain" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="pkID" />
+          </Key>
+          <Property Name="pkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Email" Type="nvarchar" MaxLength="40" />
+          <Property Name="Password" Type="nchar" MaxLength="5" />
+        </EntityType>
+        <Association Name="FK_Advertise_Agancy">
+          <End Role="Agancy" Type="Self.Agancy" Multiplicity="1" />
+          <End Role="Advertise" Type="Self.Advertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agancy">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertise">
+              <PropertyRef Name="agID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertise_Home">
+          <End Role="Home" Type="Self.Home" Multiplicity="0..1" />
+          <End Role="Advertise" Type="Self.Advertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Home">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertise">
+              <PropertyRef Name="hID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kilidModelStoreContainer">
+          <EntitySet Name="Advertise" EntityType="Self.Advertise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Agancy" EntityType="Self.Agancy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Home" EntityType="Self.Home" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Advertise_Agancy" Association="Self.FK_Advertise_Agancy">
+            <End Role="Agancy" EntitySet="Agancy" />
+            <End Role="Advertise" EntitySet="Advertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertise_Home" Association="Self.FK_Advertise_Home">
+            <End Role="Home" EntitySet="Home" />
+            <End Role="Advertise" EntitySet="Advertise" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kilidModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="kilidEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Users" EntityType="kilidModel.User" />
+          <EntitySet Name="Agancies" EntityType="kilidModel.Agancy" />
+          <EntitySet Name="Advertises" EntityType="kilidModel.Advertise" />
+          <EntitySet Name="Homes" EntityType="kilidModel.Home" />
+          <AssociationSet Name="FK_Advertise_Agancy" Association="kilidModel.FK_Advertise_Agancy">
+            <End Role="Agancy" EntitySet="Agancies" />
+            <End Role="Advertise" EntitySet="Advertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertise_Home" Association="kilidModel.FK_Advertise_Home">
+            <End Role="Home" EntitySet="Homes" />
+            <End Role="Advertise" EntitySet="Advertises" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="pkID" />
+          </Key>
+          <Property Name="pkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Agancy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgancyName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AcancyPhone" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NumberofEmployees" Type="Int32" />
+          <Property Name="ManagerName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerPhoneNumber" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Advertises" Relationship="kilidModel.FK_Advertise_Agancy" FromRole="Agancy" ToRole="Advertise" />
+        </EntityType>
+        <EntityType Name="Advertise">
+          <Key>
+            <PropertyRef Name="ADID" />
+          </Key>
+          <Property Name="ADID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hID" Type="Int32" />
+          <Property Name="agID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agancy" Relationship="kilidModel.FK_Advertise_Agancy" FromRole="Advertise" ToRole="Agancy" />
+          <NavigationProperty Name="Home" Relationship="kilidModel.FK_Advertise_Home" FromRole="Advertise" ToRole="Home" />
+        </EntityType>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Neighborhood" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int64" Nullable="false" />
+          <Property Name="RentPrice" Type="Int64" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Adtype" Type="Int32" Nullable="false" />
+          <Property Name="Usage" Type="Int32" Nullable="false" />
+          <Property Name="Roomnum" Type="Int32" Nullable="false" />
+          <Property Name="Parkinglot" Type="Int32" Nullable="false" />
+          <Property Name="Balcony" Type="Int32" Nullable="false" />
+          <Property Name="Elevator" Type="Int32" Nullable="false" />
+          <Property Name="Store" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Explain" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertises" Relationship="kilidModel.FK_Advertise_Home" FromRole="Home" ToRole="Advertise" />
+        </EntityType>
+        <Association Name="FK_Advertise_Agancy">
+          <End Type="kilidModel.Agancy" Role="Agancy" Multiplicity="1" />
+          <End Type="kilidModel.Advertise" Role="Advertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agancy">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertise">
+              <PropertyRef Name="agID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertise_Home">
+          <End Type="kilidModel.Home" Role="Home" Multiplicity="0..1" />
+          <End Type="kilidModel.Advertise" Role="Advertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Home">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Advertise">
+              <PropertyRef Name="hID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kilidModelStoreContainer" CdmEntityContainer="kilidEntities" >
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="kilidModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="pkID" ColumnName="pkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agancies">
+            <EntityTypeMapping TypeName="kilidModel.Agancy">
+              <MappingFragment StoreEntitySet="Agancy">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ManagerPhoneNumber" ColumnName="ManagerPhoneNumber" />
+                <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+                <ScalarProperty Name="NumberofEmployees" ColumnName="NumberofEmployees" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AcancyPhone" ColumnName="AcancyPhone" />
+                <ScalarProperty Name="AgancyName" ColumnName="AgancyName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertises">
+            <EntityTypeMapping TypeName="kilidModel.Advertise">
+              <MappingFragment StoreEntitySet="Advertise">
+                <ScalarProperty Name="agID" ColumnName="agID" />
+                <ScalarProperty Name="hID" ColumnName="hID" />
+                <ScalarProperty Name="ADID" ColumnName="ADID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Homes">
+            <EntityTypeMapping TypeName="kilidModel.Home">
+              <MappingFragment StoreEntitySet="Home">
+                <ScalarProperty Name="Explain" ColumnName="Explain" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Store" ColumnName="Store" />
+                <ScalarProperty Name="Elevator" ColumnName="Elevator" />
+                <ScalarProperty Name="Balcony" ColumnName="Balcony" />
+                <ScalarProperty Name="Parkinglot" ColumnName="Parkinglot" />
+                <ScalarProperty Name="Roomnum" ColumnName="Roomnum" />
+                <ScalarProperty Name="Usage" ColumnName="Usage" />
+                <ScalarProperty Name="Adtype" ColumnName="Adtype" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="RentPrice" ColumnName="RentPrice" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
